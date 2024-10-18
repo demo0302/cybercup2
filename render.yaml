@@ -1,0 +1,15 @@
+api:
+  image: python:3.9
+  build:
+    command: |
+      pip install -r requirements.txt
+      python app.py
+  web:
+    routes:
+      - all
+    static_sites:
+      - src: public
+        directory: public
+    env:
+      FLASK_ENV: production
+      FLASK_APP: app.py
